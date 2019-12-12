@@ -61,12 +61,24 @@ $custom-typography: mat-typography-config(
   display: flex;
   flex-direction: column;
   padding-top: 5px;
-  padding-left: 250px;
-  padding-right: 250px;
+  padding-left: 100px;
+  padding-right: 150px;
   padding-bottom: 250px;
 }
 
 .example-container > * {
   width: 100%;
  
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.mainContainer > * {
+  flex: 1;
+  margin-right: 5px;
 }
