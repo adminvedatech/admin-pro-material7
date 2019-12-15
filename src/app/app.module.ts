@@ -8,11 +8,13 @@ import { MaterialDesignModule } from 'src/material-design/material-design.module
 import { BanksComponent } from './banks/banks.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomersComponent } from './customers/customers.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    // CustomersComponent,
     // BanksComponent
    
   ],

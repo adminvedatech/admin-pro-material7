@@ -11,6 +11,11 @@ const routes: Routes = [
   loadChildren: () => import('./banks/banks.module').then(m => m.BanksModule),
    canActivate: [AuthGuard] 
   },
+  { path: 'customers',
+  // component: BanksComponent
+  loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule),
+  //  canActivate: [AuthGuard] 
+  },
   {
     path: 'login',
     component: LoginComponent
