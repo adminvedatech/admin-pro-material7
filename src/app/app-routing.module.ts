@@ -1,10 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BanksComponent } from './banks/banks.component';
+import { AuthGuard } from './auth/guard/auth.guard';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
   { path: 'banks',
-  loadChildren: () => import('./banks/banks.module').then(m => m.BanksModule) }
+  // component: BanksComponent
+  loadChildren: () => import('./banks/banks.module').then(m => m.BanksModule),
+   canActivate: [AuthGuard] 
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: '**', pathMatch: 'full', redirectTo: '/'
+  }
 ];
 
 @NgModule({
