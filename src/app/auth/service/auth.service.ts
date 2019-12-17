@@ -20,6 +20,12 @@ export class AuthService {
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private loggedUser: string;
+  private apikey: 'AIzaSyAv5gf56KkpVO_lyAtaPYoXBA05n0ncNZs';
+
+
+  // https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
+  // https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
+
 
   constructor(private http: HttpClient, private snackbar: SnackbarService) {}
 

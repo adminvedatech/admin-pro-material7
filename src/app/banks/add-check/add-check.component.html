@@ -1,1 +1,74 @@
-<p>add-check works!</p>
+<h1>Agregar Cheque</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="Nombre de Banco" formControlName="nameBank" />
+    </mat-form-field>
+    <div class="mainContainer">
+
+        <mat-form-field >
+            <input matInput [matDatepicker]="picker" formControlName="initialDate" placeholder="Fecha inicial"/>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker2" formControlName="paymentDate" placeholder="Fecha de cobro"/>
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+    </div>
+    <div class="mainContainer">
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Numero del Cheque" formControlName="checkNumber" />
+        <mat-icon matSuffix>money</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="mainContainer">
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="A Favor de" formControlName="paymentTo" />
+        <mat-icon matSuffix>group</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="mainContainer">
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="Valor del Cheque" formControlName="checkValue" />
+        <mat-icon matSuffix>monetization_on
+        </mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="mainContainer">
+      <h4>Tipo de Gasto</h4>
+      <mat-form-field>
+        <mat-label>Departamento</mat-label>
+        <mat-select formControlName ="selectedValue" name="food">
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  </div>
+
+  <div class="mainContainer">
+    <h4>Detall de Gasto</h4>
+    <mat-form-field>
+      <mat-label>Tipo</mat-label>
+      <mat-select formControlName ="cost" name="cost">
+        <mat-option *ngFor="let cost of costs" [value]="cost.value">
+          {{cost.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+</div>
+
+    <div class="buttonContainer">
+      <button mat-raised-button type="submit" color="warn">
+        AGREGAR CHEQUE
+        <!-- <mat-icon matSuffix>local_atm</mat-icon> -->
+      </button>
+    </div>
+  </div>
+</form>

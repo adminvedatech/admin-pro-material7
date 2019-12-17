@@ -9,15 +9,20 @@ import { AddBankAccountComponent } from './add-bank-account/add-bank-account.com
 import { AddCheckComponent } from './add-check/add-check.component';
 import { AddDepositComponent } from './add-deposit/add-deposit.component';
 import { AddBankTransferComponent } from './add-bank-transfer/add-bank-transfer.component';
+import { ChartsModule } from 'ng2-charts';
+import { MatTableDataSource, MatTableModule } from '@angular/material';
 
 
 @NgModule({
   declarations: [BanksComponent, AddBankAccountComponent, AddCheckComponent, AddDepositComponent, AddBankTransferComponent],
   imports: [
     CommonModule,
+    MatTableModule,
     MaterialDesignModule,
+    // MatTableDataSource,
     ReactiveFormsModule,
-    BanksRoutingModule
+    BanksRoutingModule,
+    ChartsModule
   ]
 })
 export class BanksModule { }

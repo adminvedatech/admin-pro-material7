@@ -8,6 +8,9 @@ import { AddDepositComponent } from './add-deposit/add-deposit.component';
 
 
 const routes: Routes = [
+  {path: 'dashboard',
+   component: BanksComponent
+  },
   {path: 'add-account',
    component: AddBankAccountComponent
   },

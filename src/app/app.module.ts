@@ -9,11 +9,13 @@ import { BanksComponent } from './banks/banks.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomersComponent } from './customers/customers.component';
+import { TestPageComponent } from './test-page/test-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    TestPageComponent,
     // CustomersComponent,
     // BanksComponent
    
