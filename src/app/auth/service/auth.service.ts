@@ -7,6 +7,7 @@ import { URL_SERVICIOS } from 'src/app/config/urls';
 // import { Tokens } from '../models/tokens';
 import { TOKEN_NAME } from '../../guard/usuario.service';
 import { SnackbarService } from '../../snackbar/snackbar.service';
+import { Usuario } from 'src/app/guard/usuario.model';
 export class Tokens {
   jwt: string;
   refreshToken: string;
@@ -20,8 +21,9 @@ export class AuthService {
   private readonly JWT_TOKEN = 'JWT_TOKEN';
   private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
   private loggedUser: string;
-  private apikey: 'AIzaSyAv5gf56KkpVO_lyAtaPYoXBA05n0ncNZs';
-
+   API_KEY = 'AIzaSyAv5gf56KkpVO_lyAtaPYoXBA05n0ncNZs';
+  private url = 'https://identitytoolkit.googleapis.com/v1';
+  
 
   // https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=[API_KEY]
   // https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
@@ -32,11 +34,16 @@ export class AuthService {
   login(user: { username: string, password: string }): Observable<boolean> {
     console.log('LOGIN');
 
-    return this.http.post<any>(`${URL_SERVICIOS}/api/login`, user)
+    return this.http.post<any>(
+      // `${URL_SERVICIOS}/api/login`, user
+     `${this.url}/accounts:signInWithPassword?key=${this.API_KEY}`, user
+      
+      )
       .pipe(
         tap(token => {
           console.log('TOKEN ', token);
-          this.doLoginUser(token.user, token.token);
+          // this.doLoginUser(token.user, token.token);
+          this.doLoginUser(token.email, token.idToken)
         }),
         mapTo(true),
         catchError(error => {
@@ -102,4 +109,25 @@ export class AuthService {
     localStorage.removeItem(this.JWT_TOKEN);
     localStorage.removeItem(this.REFRESH_TOKEN);
   }
+
+  nuevoUsuario(usuario: Usuario) {
+    console.log('USUARIO', usuario);
+    
+    const authData = {
+   
+      email: usuario.email,
+      password	: usuario.password,
+      returnSecureToken: true	
+     } 
+     console.log('APIKEY ', this.API_KEY);
+     
+   
+    return this.http.post(
+     `${this.url}/accounts:signUp?key=${this.API_KEY}`,
+     usuario
+   
+    )
 }
+
+}
+

@@ -12,6 +12,7 @@ export class SnackbarService {
     duration: 3000,
     horizontalPosition: 'center',
     verticalPosition: 'top'
+    
   };
 
 
@@ -24,11 +25,14 @@ export class SnackbarService {
 
   warn(msg) {
     this.config['panelClass'] = ['notification', 'warn'];
+    this.config.panelClass = ['red-snackbar'];
     this.snackBar.open(msg, '', this.config);
   }
 
   fail(error) {
-    this.config['panelClass'] = ['notification', 'fail'];
+    this.config['panelClass'] = ['notification', 'warn'];
+    this.config.panelClass = ['red-snackbar'];
+    
     this.snackBar.open(error, '', this.config);
   }
 

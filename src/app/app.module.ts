@@ -10,12 +10,15 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomersComponent } from './customers/customers.component';
 import { TestPageComponent } from './test-page/test-page.component';
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     TestPageComponent,
+    RegisterComponent,
     // CustomersComponent,
     // BanksComponent
    
@@ -25,6 +28,7 @@ import { TestPageComponent } from './test-page/test-page.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialDesignModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

@@ -43,6 +43,27 @@
         <mat-icon matListIcon>add</mat-icon>
         <a matLine>Transferencia entre cuentas</a>
       </mat-list-item>
+
+      <mat-divider></mat-divider>
+
+      <mat-list-item routerLink="/customer/dashboard">
+        <mat-icon matListIcon>account_balance</mat-icon>
+        <a matLine>Clientes</a>
+      </mat-list-item>
+      <mat-list-item routerLink="/customer/add-customer">
+        <mat-icon matListIcon>add</mat-icon>
+        <a matLine>Agregar Cliente </a>
+      </mat-list-item>
+      <mat-list-item routerLink="/customer/add-invoice">
+        <mat-icon matListIcon>add</mat-icon>
+        <a matLine>Agregar Factura</a>
+      </mat-list-item>
+      <mat-list-item routerLink="/customer/add-payment">
+        <mat-icon matListIcon>add</mat-icon>
+        <a matLine>Agregar Pago de Factura</a>
+      </mat-list-item>
+    
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content class="main-content">
@@ -54,6 +75,26 @@
         <h1 routerLink="/" class="app-brand">
           Bank Account Manager
         </h1>
+        <div class="topnav-right">
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/register">
+              <mat-icon>how_to_reg</mat-icon>
+              <span>Register</span>
+            </button>
+            <button mat-menu-item routerLink="/login">
+              <mat-icon>person</mat-icon>
+              <span>Login</span>
+            </button>
+            <button mat-menu-item routerLink="/logout">
+              <mat-icon>directions_run
+              </mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
+        </div>
       </mat-toolbar-row>
     </mat-toolbar>
     <main class="main-content-inner">
