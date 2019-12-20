@@ -12,6 +12,9 @@ import { CustomersComponent } from './customers/customers.component';
 import { TestPageComponent } from './test-page/test-page.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { CostsComponent } from './costs/costs.component';
+import { AddCostsComponent } from './costs/add-costs/add-costs.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     TestPageComponent,
     RegisterComponent,
-    // CustomersComponent,
-    // BanksComponent
+    SidenavComponent,
    
   ],
   imports: [

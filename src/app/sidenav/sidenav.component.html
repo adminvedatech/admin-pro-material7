@@ -1,0 +1,64 @@
+<mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                   (closed)="panelOpenState = false">
+                   <mat-expansion-panel-header>
+                    <mat-panel-title>
+                     Bancos
+                    </mat-panel-title>
+                    <mat-panel-description>
+                     Menu
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>   
+                  <mat-list-item routerLink="/banks/dashboard">
+                    <mat-icon matListIcon>account_balance</mat-icon>
+                    <a matLine>Accounts</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/banks/add-account">
+                    <mat-icon matListIcon>add</mat-icon>
+                    <a matLine>Create Account</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/banks/add-deposit">
+                    <mat-icon matListIcon>add</mat-icon>
+                 
+                    <a matLine>Agregar Deposito</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/banks/add-check">
+                    <mat-icon matListIcon>add</mat-icon>
+                    <a matLine>Agregar Cheque</a>
+                  </mat-list-item>   
+                </mat-expansion-panel>
+
+  </mat-accordion>
+
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                   (closed)="panelOpenState = false">
+                   <mat-expansion-panel-header>
+                    <mat-panel-title>
+                     Costs
+                    </mat-panel-title>
+                    <mat-panel-description>
+                     Menu
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>   
+                  <mat-list-item routerLink="/costs/dashboard">
+                    <mat-icon matListIcon>account_balance</mat-icon>
+                    <a matLine>Costs</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/costs/add-costs">
+                    <mat-icon matListIcon>add</mat-icon>
+                    <a matLine>Create Costs</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/banks/add-deposit">
+                    <mat-icon matListIcon>add</mat-icon>
+                 
+                    <a matLine>Agregar Deposito</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/banks/add-check">
+                    <mat-icon matListIcon>add</mat-icon>
+                    <a matLine>Agregar Cheque</a>
+                  </mat-list-item>   
+                </mat-expansion-panel>
+
+  </mat-accordion>
+  

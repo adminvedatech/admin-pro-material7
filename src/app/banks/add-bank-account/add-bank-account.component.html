@@ -1,11 +1,21 @@
 <h1>Agregar Cuenta Bancaria</h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  
   <div class="example-container">
+   
+    <div class="mainContainenr">
+    <mat-form-field appearance="outline">
+      <input matInput placeholder="ID" formControlName="id" />
+      </mat-form-field>
+    </div>
+ 
+  <div class="mainContainer">
     <mat-form-field appearance="outline">
       <input matInput placeholder="Nombre de Banco" formControlName="nameBank" />
     </mat-form-field>
-    <div class="mainContainer">
+  </div>
 
+    <div class="mainContainer">
       <mat-form-field appearance="outline">
         <input matInput placeholder="Numero de Cuenta" formControlName="accountNumber" />
         <mat-icon matSuffix>account_balance</mat-icon>

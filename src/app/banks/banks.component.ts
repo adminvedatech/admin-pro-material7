@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label, Color } from 'ng2-charts';
 import { MatTableDataSource } from '@angular/material';
+import { BankService } from './bank.service';
+import { Bank } from './model/model';
 
 export interface PeriodicElement {
   name: string;
@@ -33,11 +35,15 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class BanksComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  banks: Bank[] = [];
+  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns = ['nameBank', 'accountNumber', 'email', 'balance', 'balanceToday'];
+  listData: MatTableDataSource<any>;
+
+ // dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  //  this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   
   barChartLabels: Label[] = ['Apple', 'Banana', 'Kiwifruit', 'Blueberry', 'Orange', 'Grapes'];
@@ -49,18 +55,11 @@ export class BanksComponent implements OnInit {
   ]
   
   private form : FormGroup;
-  constructor(private f: FormBuilder) { }
+  constructor(private f: FormBuilder,
+              private bankservice: BankService ) { }
 
   ngOnInit() {
-    this.form = this.f.group({
-      nameBank: [''],
-    accountNumber: [''],
-    phone: [''],
-    email: [''],
-    balance: [''],
-    balanceToday: ['']
-
-    })
+   this.getAllBanksAccount();
   }
 
   barChartOptions: ChartOptions = {
@@ -75,10 +74,14 @@ export class BanksComponent implements OnInit {
     { data: [15, 25, 30, 40, 26, 20], label: 'Best Orange' }
   ];
 
-  onSubmit() {
-    console.log('FORME ', this.form.value);
-    
+  getAllBanksAccount() {
+    this.bankservice.getAllBankAccount().subscribe(result => {
+      console.log('GET ALL ACCOUNTS ', result);
+      this.banks = result;
+      this.listData = new MatTableDataSource(this.banks);
+    })
   }
+  
 }
 
 
