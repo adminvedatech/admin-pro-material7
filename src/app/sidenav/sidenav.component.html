@@ -6,7 +6,7 @@
                      Bancos
                     </mat-panel-title>
                     <mat-panel-description>
-                     Menu
+                   
                     </mat-panel-description>
                   </mat-expansion-panel-header>   
                   <mat-list-item routerLink="/banks/dashboard">
@@ -29,7 +29,7 @@
                 </mat-expansion-panel>
 
   </mat-accordion>
-
+  <mat-divider></mat-divider>
   <mat-accordion>
     <mat-expansion-panel (opened)="panelOpenState = true"
                    (closed)="panelOpenState = false">
@@ -38,7 +38,7 @@
                      Costs
                     </mat-panel-title>
                     <mat-panel-description>
-                     Menu
+                   
                     </mat-panel-description>
                   </mat-expansion-panel-header>   
                   <mat-list-item routerLink="/costs/dashboard">
@@ -62,3 +62,33 @@
 
   </mat-accordion>
   
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                   (closed)="panelOpenState = false">
+                   <mat-expansion-panel-header>
+                    <mat-panel-title>
+                     Producciones
+                    </mat-panel-title>
+                    <mat-panel-description>
+                  
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>   
+                  <mat-list-item routerLink="/production/dashboard">
+                    <mat-icon matListIcon>account_balance</mat-icon>
+                    <a matLine>Dashboard</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/production/add-production">
+                    <mat-icon matListIcon>add</mat-icon>
+                    <a matLine>Crear Produccion</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/production/add-product">
+                    <mat-icon matListIcon>add</mat-icon>
+                    <a matLine>Agregar Producto</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/production/add-raw-material">
+                    <mat-icon matListIcon>add</mat-icon>
+                    <a matLine>Agregar Materia Prima</a>
+                  </mat-list-item>   
+                </mat-expansion-panel>
+
+  </mat-accordion>

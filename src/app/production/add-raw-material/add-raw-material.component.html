@@ -1,0 +1,60 @@
+<h1>Agregar Materia Prima</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="example-container">
+    <div class="mainContainenr">
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="ID" formControlName="id" />
+      </mat-form-field>
+    </div>
+
+    <div class="mainContainer">
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          placeholder="Nombre de Materia Prima"
+          formControlName="nameRawMaterial"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="mainContainer">
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          placeholder="Numero de Codigo de Barras"
+          formControlName="codeBar"
+        />
+              <!-- <mat-icon matSuffix>account_balance</mat-icon> -->
+      </mat-form-field>
+    </div>
+
+    <div class="mainContainer">
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          placeholder="Descripcion"
+          formControlName="description"
+        />
+        <!-- <mat-icon matSuffix>phone</mat-icon> -->
+      </mat-form-field>
+    </div>
+
+    <div class="mainContainer">
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          placeholder="Costo Unitatio"
+          formControlName="unitCost"
+        />
+        <!-- <mat-icon matSuffix>phone</mat-icon> -->
+      </mat-form-field>
+    </div>
+
+    <div class="mainContainer">
+      <button mat-raised-button type="submit" color="accent">
+        AGREGAR PRODUCTO
+        <!-- <mat-icon matSuffix>account_balance</mat-icon> -->
+      </button>
+    </div>
+  </div>
+</form>

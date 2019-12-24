@@ -1,0 +1,218 @@
+<h1>Agregar Producccion</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-select
+        formControlName="productName"
+        placeholder="Seleccionar Producto"
+        name="nameProduct"
+      >
+        <mat-option *ngFor="let product of products" [value]="product">
+          {{ product.nameProduct }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="mainContainer">
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="initialDate"
+          placeholder="Fecha inicial"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          [matDatepicker]="picker2"
+          formControlName="finalDate"
+          placeholder="Fecha Final"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="picker2"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="mainContainer">
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          placeholder="Numero de Produccion"
+          formControlName="productionNumber"
+        />
+        <mat-icon matSuffix>money</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="mainContainer">
+      <mat-form-field appearance="outline">
+        <input
+          matInput
+          placeholder="Observaciones"
+          formControlName="observations"
+        />
+        <mat-icon matSuffix>group</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="mainContainer">
+      <mat-form-field appearance="outline">
+        <mat-label>Cantidad de piezas a producir</mat-label>
+        
+        <input
+          matInput
+          placeholder="Cantidad a producir"
+          formControlName="quantity"
+        />
+        <mat-icon matSuffix>monetization_on </mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="mainContainer">
+      <mat-form-field appearance="outline">
+        <mat-label>Costo Unitario</mat-label>
+
+        <input
+          matInput
+          placeholder="Costo Unitario"
+          type="number"
+          readonly
+          [readOnly]="readOnly"
+          formControlName="cost"
+          ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+          step="0.01"
+        />
+        <mat-icon matSuffix>monetization_on </mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="mainContainer">
+      <mat-form-field appearance="outline">
+        <mat-label>Costo Total</mat-label>
+        <input
+          matInput
+          placeholder="Costo Total"
+          type="number"
+          readonly
+          [readOnly]="readOnly"
+          formControlName="totalCost"
+          ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"
+          step="0.01"
+        />
+        <mat-icon matSuffix>monetization_on </mat-icon>
+      </mat-form-field>
+    </div>
+
+
+    <button mat-raised-button (click)="addMaterials()" color="primary">
+      AGREGAR MATERIALES
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <div formArrayName="materials">
+      <div *ngFor="let material of materials.controls; let i = index">
+        <div [formGroupName]="i">
+          <div id="items" class="flex-container longhand">
+            <li class="flex-item-button">
+              <button mat-mini-fab disabled>{{ i + 1 }}</button>
+            </li>
+            <li class="flex-item">
+              <mat-form-field appearance="outline">
+                <input
+                  matInput
+                  placeholder="Cantidad Utilizada"
+                  formControlName="quantity"
+                />
+              </mat-form-field>
+            </li>
+            <li class="flex-item">
+              <mat-form-field appearance="outline">
+                <mat-select
+                  formControlName="material"
+                  placeholder="Seleccionar Material"
+                  name="material"
+                >
+                  <mat-option
+                    *ngFor="let material of rawMaterials"
+                    [value]="material.nameRawMaterial"
+                    (click)="selectedItem($event, material, i)"
+                  >
+                    {{ material.nameRawMaterial }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </li>
+            <li class="flex-item">
+              <mat-form-field appearance="outline">
+                <input
+                  matInput
+                  placeholder="Costo Unitario"
+                  formControlName="costo"
+                />
+              </mat-form-field>
+            </li>
+            <li class="flex-item">
+              <mat-form-field appearance="outline">
+                <input
+                  matInput
+                  placeholder="Total"
+                  type="number"
+                  readonly
+                  [readOnly]="readOnly"
+                  formControlName="total"
+                  ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" step="0.01"
+                />
+                <mat-icon matSuffix>monetization_on </mat-icon>
+
+              </mat-form-field>
+            </li>
+            <li class="flex-item">
+              <button (click)="removeMaterials(i)" mat-mini-fab color="warn">
+                <mat-icon>clear</mat-icon>
+              </button>
+            </li>
+
+            <!-- </div> -->
+
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="mainContainer">
+      <h4>Tipo de Gasto</h4>
+      <mat-form-field>
+        <mat-label>Departamento</mat-label>
+        <mat-select formControlName ="selectedValue" name="food">
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  </div> -->
+
+    <!-- <div class="mainContainer">
+    <h4>Detall de Gasto</h4>
+    <mat-form-field>
+      <mat-label>Tipo</mat-label>
+      <mat-select formControlName ="cost" name="cost">
+        <mat-option *ngFor="let cost of costs" [value]="cost.nameCost">
+          {{cost.nameCost}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+</div> -->
+
+    <div class="buttonContainer">
+      <button mat-raised-button type="submit" color="primary">
+        AGREGAR PRODUCCION
+        <!-- <mat-icon matSuffix>local_atm</mat-icon> -->
+      </button>
+    </div>
+  </div>
+</form>

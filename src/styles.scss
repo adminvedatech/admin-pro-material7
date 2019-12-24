@@ -134,3 +134,44 @@ table {
 success {
   background-color: blue($color: blue);
 }
+
+.mainContainerItem {
+  width: 100%;
+  // height: 300px;
+  // border: 1px solid black;
+  display: -webkit-flex; /* Safari */
+  display: flex;
+}
+
+.flex-container {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  
+}
+.longhand { 
+  -webkit-flex-flow: wrap row;
+  flex-flow: wrap row;
+  
+}
+.flex-container .longhand .flex-item-button {
+padding: 1px;
+}
+
+// .mainContainerItem div {
+//   width: 100%;
+// }
+
+// .mainContainerItem > * {
+//   // flex: 1;
+//   // margin-right: 5px;
+// }

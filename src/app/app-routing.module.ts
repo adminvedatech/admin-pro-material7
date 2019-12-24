@@ -27,6 +27,10 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
+    path: 'production',
+    loadChildren: () => import('./production/production.module').then(m => m.ProductionModule),
+  },
+  {
     path: 'login',
     component: LoginComponent
   },

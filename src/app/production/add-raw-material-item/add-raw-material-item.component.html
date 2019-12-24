@@ -1,0 +1,54 @@
+
+  
+      
+        <div id="items" class="flex-container longhand">
+          <li class="flex-item-button">
+            <button mat-mini-fab disabled>{{ i + 1 }}</button>
+          </li>
+          <li class="flex-item">
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                placeholder="Cantidad Utilizada"
+                formControlName="quantity"
+              />
+              <mat-icon matSuffix>money</mat-icon>
+            </mat-form-field>
+          </li>
+          <li class="flex-item">
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                placeholder="Material"
+                formControlName="material"
+              />
+              <mat-icon matSuffix>money</mat-icon>
+            </mat-form-field>
+          </li>
+          <li class="flex-item">
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                placeholder="Costo Unitario"
+                formControlName="costo"
+              />
+              <mat-icon matSuffix>money</mat-icon>
+            </mat-form-field>
+          </li>
+          <li class="flex-item">
+            <mat-form-field appearance="outline">
+              <input matInput placeholder="Total " formControlName="total" />
+              <mat-icon matSuffix>money</mat-icon>
+            </mat-form-field>
+          </li>
+          <li class="flex-item">
+            <button (click)="removeMaterials(i)" mat-mini-fab color="warn">
+              <mat-icon>clear</mat-icon>
+            </button>
+          </li>
+
+          <!-- </div> -->
+         
+      
+    <!-- </div> -->
+  </div>

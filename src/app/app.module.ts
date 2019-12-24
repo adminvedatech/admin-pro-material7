@@ -15,6 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { CostsComponent } from './costs/costs.component';
 import { AddCostsComponent } from './costs/add-costs/add-costs.component';
+import { MenuComponent } from './menu/menu.component';
+import { ProductionComponent } from './production/production.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { AddCostsComponent } from './costs/add-costs/add-costs.component';
     TestPageComponent,
     RegisterComponent,
     SidenavComponent,
+    MenuComponent,
    
   ],
   imports: [
