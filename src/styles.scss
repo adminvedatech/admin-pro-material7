@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, sans-serif; }
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import "~@angular/material/theming";
@@ -48,7 +48,9 @@ $theme: mat-light-theme($primary, $accent, $warn);
 // Define a custom typography config that overrides the font-family as well as the
 // `headlines` and `body-1` levels.
 $custom-typography: mat-typography-config(
-  $font-family: "Roboto Mono"
+  $font-family: 'Tahoma, Geneva, sans-serif',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(18px, 24px, 500)
 );
 
 // Override typography for all Angular Material, including mat-base-typography and all components.

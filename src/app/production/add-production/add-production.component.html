@@ -1,4 +1,4 @@
-<h1>Agregar Producccion</h1>
+<h1>Agregar Produccion</h1>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="example-container">
     <mat-form-field appearance="outline">
@@ -6,13 +6,16 @@
         formControlName="productName"
         placeholder="Seleccionar Producto"
         name="nameProduct"
+        required
       >
         <mat-option *ngFor="let product of products" [value]="product">
           {{ product.nameProduct }}
         </mat-option>
       </mat-select>
     </mat-form-field>
-
+    
+    <!-- <div *ngIf="form.controls.productName.errors.required">First Name is required</div> -->
+                    
     <div class="mainContainer">
       <mat-form-field>
         <input
@@ -39,6 +42,8 @@
         <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field>
     </div>
+
+
     <div class="mainContainer">
       <mat-form-field appearance="outline">
         <input
@@ -69,6 +74,7 @@
           matInput
           placeholder="Cantidad a producir"
           formControlName="quantity"
+          (keyup)="recalculateCost()"
         />
         <mat-icon matSuffix>monetization_on </mat-icon>
       </mat-form-field>
@@ -109,7 +115,7 @@
     </div>
 
 
-    <button mat-raised-button (click)="addMaterials()" color="primary">
+    <button mat-raised-button [disabled]="!form.valid" (click)="addMaterials()" color="primary">
       AGREGAR MATERIALES
       <mat-icon>add</mat-icon>
     </button>
@@ -121,21 +127,36 @@
             <li class="flex-item-button">
               <button mat-mini-fab disabled>{{ i + 1 }}</button>
             </li>
+            <!-- <li class="flex-item">
+              <mat-form-field appearance="outline">
+                <mat-label>Id</mat-label>
+                <input
+                  matInput
+                  placeholder="Id"
+                  formControlName="id"
+                
+                 />
+              </mat-form-field>
+            </li> -->
             <li class="flex-item">
               <mat-form-field appearance="outline">
+                <mat-label>Cantidad utilizada</mat-label>
                 <input
                   matInput
                   placeholder="Cantidad Utilizada"
                   formControlName="quantity"
+                  (keyup)="inputChange($event, i)"
+                  required="required"
                 />
               </mat-form-field>
             </li>
             <li class="flex-item">
               <mat-form-field appearance="outline">
+                <mat-label>Material</mat-label>
                 <mat-select
-                  formControlName="material"
+                  formControlName="rawmaterial"
                   placeholder="Seleccionar Material"
-                  name="material"
+                  name="rawmaterial"
                 >
                   <mat-option
                     *ngFor="let material of rawMaterials"
@@ -149,15 +170,17 @@
             </li>
             <li class="flex-item">
               <mat-form-field appearance="outline">
+                <mat-label>Costo Unitario</mat-label>
                 <input
                   matInput
                   placeholder="Costo Unitario"
-                  formControlName="costo"
+                  formControlName="unitCost"
                 />
               </mat-form-field>
             </li>
             <li class="flex-item">
               <mat-form-field appearance="outline">
+                <mat-label>SubTotal</mat-label>
                 <input
                   matInput
                   placeholder="Total"
@@ -209,7 +232,7 @@
 </div> -->
 
     <div class="buttonContainer">
-      <button mat-raised-button type="submit" color="primary">
+      <button [disabled]="!form.valid" mat-raised-button type="submit" color="primary">
         AGREGAR PRODUCCION
         <!-- <mat-icon matSuffix>local_atm</mat-icon> -->
       </button>
