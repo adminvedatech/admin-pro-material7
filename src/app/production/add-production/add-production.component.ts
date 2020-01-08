@@ -45,6 +45,7 @@ export class AddProductionComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
+      id: [""],
       productName: new FormControl("", [Validators.required]),
       initialDate: ["", [Validators.required]],
       finalDate: [""],
@@ -92,23 +93,35 @@ export class AddProductionComponent implements OnInit {
   }
 
   removeMaterials(id: number) {
-    // this.materials.removeAt(id);
+     this.materials.removeAt(id);
     // var arrayControl = this.form.get("materials") as FormArray;
     // for (var i = 0; i < arrayControl.length; i++) {
     //   this.raw[i] = <Raw>arrayControl.controls[i].value;
     // }
-    // this.itemsCalculation(arrayControl);
+    this.itemsCalculation();
   }
 
   onSubmit() {
     console.log(this.form);
     console.log(this.form.value);
+    this.productionservice.createProduccion(this.form.value).subscribe(res => {
+      console.log('PRODUCCION ', res);
+      for( var i=0; i< res.materials.length; i++){
+        console.log('VALOR DE I ', i);
+        console.log('VALOR DE I ', res.materials[i]);
+
+        
+      }
+
+      
+    })
   }
 
   getAllProducts() {
     this.productionservice.getAllProducts().subscribe(res => {
       this.products = res;
       console.log("PRODUCTS ", this.products);
+     
     });
   }
 

@@ -1,0 +1,27 @@
+<input
+  #fileInput
+  style="display: none"
+  type="file"
+  (change)="onFileSelected($event)"
+/>
+<ul class="invoices">
+  <li>
+   <div class="example-full-width">
+
+       {{ name }}
+   </div>
+  
+  </li>
+
+  <li>
+    <button (click)="fileInput.click()" mat-raised-button color="accent">
+      Seleccionar Archivo
+    </button>
+  </li>
+  <li>
+    <button mat-raised-button color="primary">Enviar</button>
+  </li>
+  <li>
+    <button mat-raised-button color="warn">Cancelar</button>
+  </li>
+</ul>

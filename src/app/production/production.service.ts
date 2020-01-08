@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Product, RawMaterial } from "./product.model";
+import { Product, RawMaterial, Produccion } from "./product.model";
 import { map } from "rxjs/operators";
 
 @Injectable({
@@ -31,6 +31,30 @@ export class ProductionService {
         })
       );
   }
+
+
+  createProduccion(produccion: Produccion) {
+    console.log("PRODUCT ", produccion);
+
+    // this.httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+    // url += '?token=' + this.token;
+    return this.http
+      .post(
+        // URL_SERVICIOS +
+        this.URL_SERVICIOS_FIRE + "product.json",
+        // '/api/bank/addBankAccount',
+        produccion
+        //  {headers: this.httpHeaders}
+      )
+      .pipe(
+        map((resp: any) => {
+          produccion.id = resp.name;
+          return produccion;
+        })
+      );
+  }
+
+  
 
   createRawMateri(product: RawMaterial) {
     console.log("PRODUCT ", product);

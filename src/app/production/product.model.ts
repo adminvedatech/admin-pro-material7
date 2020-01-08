@@ -24,3 +24,17 @@ export class Raws {
     total: string;
     
 }
+
+export class Produccion {
+
+    id:string; 
+    productName: string;
+    initialDate: Date;
+    finalDate: Date;
+    productionNumber: string;
+    observations: string;
+    quantity: number;
+    cost: number;
+    totalCost: number;
+    materials: RawMaterial[];
+}
