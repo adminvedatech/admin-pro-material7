@@ -11,10 +11,11 @@ import { AddDepositComponent } from './add-deposit/add-deposit.component';
 import { AddBankTransferComponent } from './add-bank-transfer/add-bank-transfer.component';
 import { ChartsModule } from 'ng2-charts';
 import { MatTableDataSource, MatTableModule } from '@angular/material';
+import { GetChecksComponent } from './get-checks/get-checks.component';
 
 
 @NgModule({
-  declarations: [BanksComponent, AddBankAccountComponent, AddCheckComponent, AddDepositComponent, AddBankTransferComponent],
+  declarations: [BanksComponent, AddBankAccountComponent, AddCheckComponent, AddDepositComponent, AddBankTransferComponent, GetChecksComponent],
   imports: [
     CommonModule,
     MatTableModule,

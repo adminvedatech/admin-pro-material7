@@ -1,0 +1,54 @@
+<h2>Dashboard Accountings Account</h2>
+
+    
+        <div class="mainContainerGraph">
+            <canvas baseChart 
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [colors] ="colors"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+          </canvas>
+        </div>
+       
+            
+            
+                <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                </mat-form-field>
+                
+                <table mat-table [dataSource]="listData" class="mat-elevation-z8">
+                    
+                    <!-- Position Column -->
+                                       
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="nameAccount">
+                        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                        <td mat-cell *matCellDef="let element"> {{element.nameAccount}} </td>
+                    </ng-container>
+                    
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="accountNumber">
+                        <th mat-header-cell *matHeaderCellDef> Cuenta </th>
+                        <td mat-cell *matCellDef="let element"> {{element.accountNumber | mask: '0000-000-00'}}  </td>
+                    </ng-container>
+                  
+
+                    <ng-container matColumnDef="balance">
+                        <th mat-header-cell *matHeaderCellDef> Balance </th>
+                        <td mat-cell *matCellDef="let element"> {{element.balance}} </td>
+                    </ng-container>
+
+                   
+                    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                
+       
+      
+
+   
+    

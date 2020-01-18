@@ -17,6 +17,8 @@ import { CostsComponent } from './costs/costs.component';
 import { AddCostsComponent } from './costs/add-costs/add-costs.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProductionComponent } from './production/production.component';
+import { SuppliersComponent } from './suppliers/suppliers.component';
+import { AccountingsComponent } from './accountings/accountings.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { ProductionComponent } from './production/production.component';
     RegisterComponent,
     SidenavComponent,
     MenuComponent,
+    
    
   ],
   imports: [

@@ -50,7 +50,7 @@
       <h4>Tipo de Gasto</h4>
       <mat-form-field>
         <mat-label>Departamento</mat-label>
-        <mat-select formControlName ="selectedValue" name="food">
+        <mat-select formControlName ="department" name="department">
           <mat-option *ngFor="let food of foods" [value]="food.value">
             {{food.viewValue}}
           </mat-option>
@@ -62,7 +62,7 @@
     <h4>Detall de Gasto</h4>
     <mat-form-field>
       <mat-label>Tipo</mat-label>
-      <mat-select formControlName ="cost" name="cost">
+      <mat-select formControlName ="costType" name="costType">
         <mat-option *ngFor="let cost of costs" [value]="cost.nameCost">
           {{cost.nameCost}}
         </mat-option>

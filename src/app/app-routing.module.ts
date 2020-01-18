@@ -22,6 +22,16 @@ const routes: Routes = [
   loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule),
   //  canActivate: [AuthGuard] 
   },
+  { path: 'suppliers',
+  // component: BanksComponent
+  loadChildren: () => import('./suppliers/suppliers.module').then(m => m.SuppliersModule),
+  //  canActivate: [AuthGuard] 
+  },
+  { path: 'accountings',
+  // component: BanksComponent
+  loadChildren: () => import('./accountings/accountings.module').then(m => m.AccountingsModule),
+  //  canActivate: [AuthGuard] 
+  },
   {
     path: 'register',
     component: RegisterComponent

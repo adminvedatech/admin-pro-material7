@@ -5,6 +5,7 @@ import { AddBankAccountComponent } from './add-bank-account/add-bank-account.com
 import { AddBankTransferComponent } from './add-bank-transfer/add-bank-transfer.component';
 import { AddCheckComponent } from './add-check/add-check.component';
 import { AddDepositComponent } from './add-deposit/add-deposit.component';
+import { GetChecksComponent } from './get-checks/get-checks.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,9 @@ const routes: Routes = [
   },
   {path: 'add-deposit',
   component: AddDepositComponent
+  },
+  {path: 'get-checks',
+  component: GetChecksComponent
   },
   
   ];

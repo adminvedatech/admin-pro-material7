@@ -25,7 +25,13 @@
                   <mat-list-item routerLink="/banks/add-check">
                     <mat-icon matListIcon>add</mat-icon>
                     <a matLine>Agregar Cheque</a>
-                  </mat-list-item>   
+                  </mat-list-item> 
+                  
+                  <mat-list-item routerLink="/banks/get-checks">
+                  <mat-icon matListIcon>add</mat-icon>
+                  <a matLine>Lista de  Cheques</a>
+                </mat-list-item>   
+
                 </mat-expansion-panel>
 
   </mat-accordion>
@@ -127,4 +133,66 @@
                 </mat-expansion-panel>
 
   </mat-accordion>
+
+  <mat-divider></mat-divider>
+
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                   (closed)="panelOpenState = false">
+                   <mat-expansion-panel-header>
+                    <mat-panel-title>
+                     Proveedores
+                    </mat-panel-title>
+                    <mat-panel-description>
+                  
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>   
+                  <mat-list-item routerLink="/suppliers/dashboard">
+                    <mat-icon matListIcon>account_balance</mat-icon>
+                    <a matLine>Dashboard</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/suppliers/add-supplier-invoice">
+                    <mat-icon matListIcon>add</mat-icon>
+                    <a matLine>Alta de Factura</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/production/add-product">
+                    <mat-icon matListIcon>add</mat-icon>
+                    <a matLine>Agregar Producto</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/production/add-raw-material">
+                    <mat-icon matListIcon>add</mat-icon>
+                    <a matLine>Agregar Materia Prima</a>
+                  </mat-list-item>   
+                </mat-expansion-panel>
+
+  </mat-accordion>
+
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                   (closed)="panelOpenState = false">
+                   <mat-expansion-panel-header>
+                    <mat-panel-title>
+                     Contabilidad
+                    </mat-panel-title>
+                    <mat-panel-description>
+                  
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>   
+                  <mat-list-item routerLink="/accountings/dashboard">
+                    <mat-icon matListIcon>account_balance</mat-icon>
+                    <a matLine>Dashboard</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/accountings/add-accounting-account">
+                    <mat-icon matListIcon>add</mat-icon>
+                    <a matLine>Alta de Cuenta Contable</a>
+                  </mat-list-item>
+                  <mat-list-item routerLink="/accountings/add-policy-accounting">
+                    <mat-icon matListIcon>add</mat-icon>
+                    <a matLine>Agregar Poliza</a>
+                  </mat-list-item>
+                 
+                </mat-expansion-panel>
+
+  </mat-accordion>
+
 

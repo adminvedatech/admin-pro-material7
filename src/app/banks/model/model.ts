@@ -10,3 +10,17 @@ export class Bank {
 
 
 }
+
+export class Check {
+
+    id: string;
+    nameBank: Bank;
+    initialDate: Date;
+    paymentDate: Date;
+    checkNumber: string;
+    paymentTo: string;
+    checkValue: number;
+    department: string;
+    costType: string;
+
+}

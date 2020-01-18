@@ -4,6 +4,7 @@ import { CostsService } from 'src/app/costs/costs.service';
 import { Cost } from 'src/app/costs/cost.model';
 import { BankService } from '../bank.service';
 import { Bank } from '../model/model';
+import { SnackbarService } from 'src/app/snackbar/snackbar.service';
 
 export interface Food {
   value: string;
@@ -24,6 +25,17 @@ export interface Food {
 export class AddCheckComponent implements OnInit {
   
   selectedValue: string;
+  check = {
+    id: '',
+    nameBank: '',
+    initialDate: '',
+    paymentDate: '',
+    checkNumber: '',
+    paymentTo: '',
+    checkValue: '',
+    department: '',
+    costType: '',
+  }
 
   foods: Food[] = [
     {value: 'Gasto de Administracion', viewValue: 'Gasto Administracion'},
@@ -47,7 +59,9 @@ export class AddCheckComponent implements OnInit {
   private form : FormGroup;
   constructor(private f: FormBuilder,
               private costservice: CostsService,
-              private bankservice: BankService) {
+              private bankservice: BankService,
+              private snackbar: SnackbarService) 
+              {
                 
                 }
   
@@ -57,13 +71,14 @@ export class AddCheckComponent implements OnInit {
         // id: new FormControl(),
         // name: new FormControl()
       }),
+             id: [''],
     initialDate: [''],
     paymentDate: [''],
     checkNumber: [''],
-    paymentTo: [''],
-    checkValue: [''],
-    selectedValue: [''],
-    cost: ['']
+      paymentTo: [''],
+     checkValue: [''],
+     department: [''],
+       costType: ['']
 
     });
     this.getAllBankAccounts();
@@ -72,6 +87,10 @@ export class AddCheckComponent implements OnInit {
 
   onSubmit() {
     console.log('FORME ', this.form.value);
+    this.bankservice.createCheck(this.form.value).subscribe( res=> {
+        console.log('RESULT', res);
+        this.cleanForm();
+    })
     
   }
 
@@ -88,6 +107,13 @@ export class AddCheckComponent implements OnInit {
       
         this.banks = res;
     })
+  }
+
+  cleanForm() {
+    this.form.setValue(this.check);
+   // this.router.navigate(['/banks/dashboard']);
+    this.snackbar.success('Se Agrego el cheque correctamente');
+   
   }
 
 }

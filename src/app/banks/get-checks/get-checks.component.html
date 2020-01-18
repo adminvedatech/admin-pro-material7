@@ -1,0 +1,17 @@
+<p>get-checks works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="example-container">
+      <mat-form-field appearance="outline">
+        <mat-select
+          formControlName="nameBank"
+          placeholder="Seleccionar Producto"
+          name="nameBank"
+          required
+        >
+          <mat-option *ngFor="let bank of banks" [value]="bank">
+            {{ bank.nameBank }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    </form>
